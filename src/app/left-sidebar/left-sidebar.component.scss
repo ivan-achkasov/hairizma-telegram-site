@@ -1,0 +1,43 @@
+$c-aside-background: #444;
+$c-headline-text: white;
+$c-menu-text: white;
+$c-menu-border: #363636;
+
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+#left-sidebar {
+  height: 100%;
+  width: 250px;
+  background-color: $c-aside-background;
+  @include box-shadow(inset -8px 0px 8px -8px rgba(0,0,0,0.75));
+
+  .headline {
+    color: $c-headline-text;
+    padding: 25px;
+    border-bottom: 2px solid $c-menu-border;
+  }
+
+  .menu {
+    color: $c-menu-text;
+
+    .menu-item {
+      display: block;
+      padding: 10px 5px 10px 25px;
+
+      border-bottom: 1px solid $c-menu-border;
+
+      &:hover,
+      &:focus {
+        background-color: darken($c-aside-background, 5%);
+      }
+
+      &:active {
+        background-color: darken($c-aside-background, 7%);
+      }
+    }
+  }
+}
